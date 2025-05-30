@@ -5,5 +5,4 @@
 
 extern temp_sensor_t lm75db_sensor;
 
-
 #endif // LM75DB_H

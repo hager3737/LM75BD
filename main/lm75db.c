@@ -8,6 +8,7 @@
 #define I2C_FREQ 100000
 #define TEMP_REG 0x00
 
+// Init function
 bool lm75db_init(void) {
     i2c_config_t config = {
         .mode = I2C_MODE_MASTER,
@@ -31,6 +32,7 @@ bool lm75db_init(void) {
 
 }
 
+// Function to read the raw data.
 int lm75db_read_raw(int16_t *raw) {
     esp_err_t ret;
     uint8_t data[2];
@@ -68,6 +70,7 @@ int lm75db_read_raw(int16_t *raw) {
     return 0;
 }
 
+//Function to convert raw data to celsius
 float lm75db_raw_to_celsius(int16_t raw) {
     return raw * 0.125f;
 }
