@@ -6,7 +6,7 @@
 
 typedef struct{
     bool (*init) (void);
-    int (*read_raw) (int16_t *raw);
+    int (*read_raw) (int16_t *raw); //, int16_t address
     float (*raw_to_celsius) (int16_t raw);
 } temp_sensor_t;
 

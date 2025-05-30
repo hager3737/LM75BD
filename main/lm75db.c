@@ -1,12 +1,7 @@
 #include "temp_driver.h"
 #include "driver/i2c.h"
 #include "esp_log.h"
-
-#define LM75DB_ADDR (0x49 << 1)
-#define SCL_IO 22
-#define SDA_IO 21
-#define I2C_FREQ 100000
-#define TEMP_REG 0x00
+#include "lm75db.h"
 
 bool lm75db_init(void) {
     i2c_config_t config = {
@@ -31,7 +26,7 @@ bool lm75db_init(void) {
 
 }
 
-int lm75db_read_raw(int16_t *raw) {
+int lm75db_read_raw(int16_t *raw) { //, int16_t address
     esp_err_t ret;
     uint8_t data[2];
 
